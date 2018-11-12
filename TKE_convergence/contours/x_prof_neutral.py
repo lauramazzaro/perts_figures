@@ -1,7 +1,7 @@
 # 'x_prof.py'
 
 from scipy.io import loadmat
-dh = loadmat('n_008_013.mat')
+dh = loadmat('n_009_001_003.mat')
 
 
 # Plots TKE vs. x for a few heights for all nested runs
