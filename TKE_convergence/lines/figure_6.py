@@ -3,10 +3,10 @@
 # Plots TKE vs. x for a few heights for all nested runs without perturbations
 
 # Add new colorbars which aren't available in my version of python (i.e. viridis)
-execfile('/Users/lauramazzaro/Documents/Work/Perts/Article/Figures/new_cmaps.py')
+execfile('../../new_cmaps.py')
 
 # Modify plotting parameters!
-execfile('/Users/lauramazzaro/Documents/Work/Perts/Article/Figures/new_params.py')
+execfile('../../new_params.py')
 
 import matplotlib.pyplot as plt
 from scipy.io import loadmat
@@ -20,36 +20,29 @@ plt.figure(figsize=(10,10))
 
 plt.subplot(3,1,1)
 
-dh = loadmat('n_008_001.mat')
+dh = loadmat('n_009_001_001.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(100/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,'k',label=R'$\mathregular{{N}_{\theta}}$')
 
-dh = loadmat('n_008_011.mat')
+dh = loadmat('n_009_005.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(100/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[0],label=R'$\mathregular{{N}_{z1000}}$')
 
-dh = loadmat('n_008_005.mat')
+dh = loadmat('n_009_006.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(100/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[1],label=R'$\mathregular{{N}_{z1250}}$')
 
-dh = loadmat('n_008_006.mat')
+dh = loadmat('n_009_007.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(100/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[2],label=R'$\mathregular{{N}_{z1500}}$')
-
-dh = loadmat('n_008_007.mat')
-X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
-dat = dh['TKE_res'][int(100/20),:]
-dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[5],label=R'$\mathregular{{N}_{z1750}}$')
-
+plt.plot(X/1000,dat,c=line_cols[5],label=R'$\mathregular{{N}_{z1500}}$')
 
 rect = matplotlib.patches.Rectangle((0,0.9),50,0.2,color='#e6e6e6')
 plt.gca().add_patch(rect)
@@ -69,35 +62,30 @@ plt.text(47, 1.7, '(a)')
 
 plt.subplot(3,1,2)
 
-dh = loadmat('n_008_001.mat')
+dh = loadmat('n_009_001_001.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(250/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,'k',label=R'$\mathregular{{N}_{\theta}}$')
 
-dh = loadmat('n_008_011.mat')
+dh = loadmat('n_009_005.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(250/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[0],label=R'$\mathregular{{N}_{z1000}}$')
 
-dh = loadmat('n_008_005.mat')
+dh = loadmat('n_009_006.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(250/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[1],label=R'$\mathregular{{N}_{z1250}}$')
 
-dh = loadmat('n_008_006.mat')
+dh = loadmat('n_009_007.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(250/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[2],label=R'$\mathregular{{N}_{z1500}}$')
+plt.plot(X/1000,dat,c=line_cols[5],label=R'$\mathregular{{N}_{z1500}}$')
 
-dh = loadmat('n_008_007.mat')
-X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
-dat = dh['TKE_res'][int(250/20),:]
-dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[5],label=R'$\mathregular{{N}_{z1750}}$')
 
 plt.text(43,0.15,R'$\mathregular{{N}_{z1750}}$',fontsize=20)
 rect = matplotlib.patches.Rectangle((0,0.9),50,0.2,color='#e6e6e6')
@@ -118,7 +106,7 @@ plt.text(47, 1.7, '(b)')
 
 plt.subplot(3,1,3)
 
-dh = loadmat('n_008_001.mat')
+dh = loadmat('n_009_001_001.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(350/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
@@ -126,33 +114,26 @@ plt.plot(X/1000,dat,'k',label=R'$\mathregular{{N}_{\theta}}$')
 plt.text(21,0.15,R'$\mathregular{{N}_{\theta}}$',color = "black",fontsize=20)
 
 
-dh = loadmat('n_008_011.mat')
+dh = loadmat('n_009_005.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(350/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[0],label=R'$\mathregular{{N}_{z1000}}$')
 plt.text(25,0.15,R'$\mathregular{{N}_{z1000}}$',color = line_cols[0],fontsize=20)
 
-dh = loadmat('n_008_005.mat')
+dh = loadmat('n_009_006.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(350/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[1],label=R'$\mathregular{{N}_{z1250}}$')
 plt.text(31,0.15,R'$\mathregular{{N}_{z1250}}$',color = line_cols[1],fontsize=20)
 
-dh = loadmat('n_008_006.mat')
+dh = loadmat('n_009_007.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(350/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[2],label=R'$\mathregular{{N}_{z1500}}$')
-plt.text(37,0.15,R'$\mathregular{{N}_{z1500}}$',color = line_cols[2],fontsize=20)
-
-dh = loadmat('n_008_007.mat')
-X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
-dat = dh['TKE_res'][int(350/20),:]
-dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[5],label=R'$\mathregular{{N}_{z1750}}$')
-plt.text(43,0.15,R'$\mathregular{{N}_{z1750}}$',color = line_cols[5],fontsize=20)
+plt.plot(X/1000,dat,c=line_cols[5],label=R'$\mathregular{{N}_{z1500}}$')
+plt.text(37,0.15,R'$\mathregular{{N}_{z1500}}$',color = line_cols[5],fontsize=20)
 
 
 rect = matplotlib.patches.Rectangle((0,0.9),50,0.2,color='#e6e6e6')
