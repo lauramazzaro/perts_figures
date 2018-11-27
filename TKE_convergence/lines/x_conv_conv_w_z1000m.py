@@ -48,7 +48,7 @@ dat = dh['TKE_res'][int(1000/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[3],label=R'$\mathregular{{C}_{z5000}}$')
 
-dh = loadmat('c_003_007.mat')
+dh = loadmat('c_003_009.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(1000/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])

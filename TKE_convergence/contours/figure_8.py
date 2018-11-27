@@ -21,7 +21,7 @@ crange = [0,0.25,0.5,0.75]
 
 fig,axs = plt.subplots(3,1,figsize=(8,12))
 
-dh = loadmat('n_008_001.mat')
+dh = loadmat('n_009_001_001.mat')
 
 dx = dh['dx'][0][0]
 y_ind = np.ceil(y_crop/dx)
@@ -35,11 +35,11 @@ axs.flat[0].set_ylabel('z (km)')
 axs.flat[0].set_xlim([0,50])
 axs.flat[0].set_xticks([])
 axs.flat[0].set_yticks([0.2,0.6,1.0,1.4])
-axs.flat[0].text(-10,1.4,'(a)')
+axs.flat[0].text(-9,1.4,'(a)')
 
 # ------------- z-force ---------------
 
-dh = loadmat('n_008_005.mat')
+dh = loadmat('n_009_006.mat')
 
 dx = dh['dx'][0][0]
 y_ind = np.ceil(y_crop/dx)
@@ -53,11 +53,11 @@ axs.flat[1].set_ylabel('z (km)')
 axs.flat[1].set_xlim([0,50])
 axs.flat[1].set_xticks([])
 axs.flat[1].set_yticks([0.2,0.6,1.0,1.4])
-axs.flat[1].text(-10,1.4,'(b)')
+axs.flat[1].text(-9,1.4,'(b)')
 
 # ------------- xy-Force  ---------------
 
-dh = loadmat('n_008_003.mat')
+dh = loadmat('n_010_001.mat')
 
 dx = dh['dx'][0][0]
 y_ind = np.ceil(y_crop/dx)
@@ -70,7 +70,7 @@ axs.flat[2].set_ylabel('z (km)')
 axs.flat[2].set_xlabel('x (km)')
 axs.flat[2].set_xlim([0,50])
 axs.flat[2].set_yticks([0.4,0.8,1.2])
-axs.flat[2].text(-10,1.4,'(c)')
+axs.flat[2].text(-9,1.4,'(c)')
 
 plt.tight_layout()
 

@@ -21,7 +21,7 @@ crange = [0,0.25,0.5,0.75]
 
 fig,axs = plt.subplots(4,1,figsize=(8,16))
 
-dh = loadmat('n_009_001_000.mat')
+dh = loadmat('n_009_001_005.mat')
 
 dx = dh['dx'][0][0]
 y_ind = np.ceil(y_crop/dx)

@@ -22,7 +22,7 @@ z_plot = 250
 
 fig,axs = plt.subplots(3,1,figsize=(9,12))
 
-with np.load('neutral_008_001_theta_0.50K/d02_0001-01-02_07:00:00.npz') as dh:
+with np.load('neutral_009_001_001_theta_0.25K/d02_0001-01-02_07:00:00.npz') as dh:
      u = dh['u']
      z = np.squeeze(dh['z'])
      dx = dh['dx'][0][0]

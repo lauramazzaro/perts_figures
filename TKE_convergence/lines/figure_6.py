@@ -14,7 +14,7 @@ import numpy as np
 import matplotlib
 from matplotlib import gridspec
 
-plt.figure(figsize=(10,10))
+plt.figure(figsize=(13,13))
  
 #_____________________________ z = 100m _______________________________
 
@@ -42,7 +42,7 @@ dh = loadmat('n_009_007.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(100/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[5],label=R'$\mathregular{{N}_{z1500}}$')
+plt.plot(X/1000,dat,c=line_cols[2],label=R'$\mathregular{{N}_{z1500}}$')
 
 rect = matplotlib.patches.Rectangle((0,0.9),50,0.2,color='#e6e6e6')
 plt.gca().add_patch(rect)
@@ -84,10 +84,9 @@ dh = loadmat('n_009_007.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(250/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[5],label=R'$\mathregular{{N}_{z1500}}$')
+plt.plot(X/1000,dat,c=line_cols[2],label=R'$\mathregular{{N}_{z1500}}$')
 
 
-plt.text(43,0.15,R'$\mathregular{{N}_{z1750}}$',fontsize=20)
 rect = matplotlib.patches.Rectangle((0,0.9),50,0.2,color='#e6e6e6')
 plt.gca().add_patch(rect)
 
@@ -111,7 +110,6 @@ X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(350/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,'k',label=R'$\mathregular{{N}_{\theta}}$')
-plt.text(21,0.15,R'$\mathregular{{N}_{\theta}}$',color = "black",fontsize=20)
 
 
 dh = loadmat('n_009_005.mat')
@@ -119,21 +117,23 @@ X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(350/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[0],label=R'$\mathregular{{N}_{z1000}}$')
-plt.text(25,0.15,R'$\mathregular{{N}_{z1000}}$',color = line_cols[0],fontsize=20)
 
 dh = loadmat('n_009_006.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(350/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[1],label=R'$\mathregular{{N}_{z1250}}$')
-plt.text(31,0.15,R'$\mathregular{{N}_{z1250}}$',color = line_cols[1],fontsize=20)
 
 dh = loadmat('n_009_007.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(350/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[5],label=R'$\mathregular{{N}_{z1500}}$')
-plt.text(37,0.15,R'$\mathregular{{N}_{z1500}}$',color = line_cols[5],fontsize=20)
+plt.plot(X/1000,dat,c=line_cols[2],label=R'$\mathregular{{N}_{z1500}}$')
+
+plt.text(21,0.15,R'$\mathregular{{N}_{\theta}}$',color = "black",fontsize=20)
+plt.text(25,0.15,R'$\mathregular{{N}_{z1000}}$',color = line_cols[0],fontsize=20)
+plt.text(31,0.15,R'$\mathregular{{N}_{z1250}}$',color = line_cols[1],fontsize=20)
+plt.text(37,0.15,R'$\mathregular{{N}_{z1500}}$',color = line_cols[2],fontsize=20)
 
 
 rect = matplotlib.patches.Rectangle((0,0.9),50,0.2,color='#e6e6e6')

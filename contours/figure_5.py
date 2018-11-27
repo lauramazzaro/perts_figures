@@ -18,7 +18,7 @@ import matplotlib
 # 018_000_d01:
 crange = [5,7,9,11]
 
-z_plot = 250
+z_plot = 100
 # ---------------------------
 
 with np.load('neutral_009_000_noperts/d02_0001-01-02_07:00:00.npz') as dh:

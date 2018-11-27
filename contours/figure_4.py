@@ -22,7 +22,7 @@ fig,axs = plt.subplots(1,2,figsize=(15,4))
 
 # ------------ Neutral + z = 250m ---------------
 
-z_plot = 250;
+z_plot = 100;
 
 with np.load('neutral_parent/d01_0001-01-02_07:00:00.npz') as dh:
      u = dh['u']
@@ -44,7 +44,7 @@ axs.flat[0].text(-8,20,'(a)')
 
 # ------------ Convective + z = 1000m ---------------
 
-z_plot = 1000;
+z_plot = 400;
 
 with np.load('convective_parent/d01_0001-01-01_09:55:00.npz') as dh:
      u = dh['u']
