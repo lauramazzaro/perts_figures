@@ -20,6 +20,8 @@ plt.figure(figsize = (16,12))
 
 #xs_ind = [1,20,40,60,80,100,120,140,160,180]
 xs_ind = [1,5,10,15,20,40,60,80,120,160]
+xs_ind = np.linspace(1,180,180)
+
 # make colormap:
 #cols = cmaps['viridis'](np.linspace(0,1,len(xs_ind)))
 cols = matplotlib.cm.get_cmap('jet')(np.linspace(0,1,len(xs_ind)))

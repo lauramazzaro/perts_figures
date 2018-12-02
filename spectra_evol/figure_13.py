@@ -18,6 +18,7 @@ plt.close('all')
 plt.figure(figsize = (20,12))
 
 xs_ind = [1,5,10,15,20,40,60,80,120,160]
+#xs_ind = np.linspace(1,180,180)
 
 # make colormap:
 #cols = cmaps['viridis'](np.linspace(0,1,len(xs_ind)))
@@ -56,7 +57,7 @@ for i in np.arange(len(xs_ind)):
 # Plotting stuff:
 #plt.xlabel(R'$k_y$ (m$^{-1}$)')
 plt.ylabel(R'$k_yF_{uy}$ (m$^2$ s$^{-2}$)')
-#	plt.ylabel(R'$k_yF_{\theta y}$ (K m s$^{-1}$)')
+#	plt.ylabel(R'$k_yF_{\v y}$ (K m s$^{-1}$)')
 #	plt.ylabel(R'$k_yF_{wy}$ (m$^2$ s$^{-2}$)')
 
 plt.xlim([4e-4,6e-2])
@@ -89,7 +90,7 @@ for i in np.arange(len(xs_ind)):
 # Plotting stuff:
 #plt.xlabel(R'$k_y$ (m$^{-1}$)')
 #plt.ylabel(R'$k_yF_{uy}$ (m$^2$ s$^{-2}$)')
-#plt.ylabel(R'$k_yF_{\theta y}$ (K m s$^{-1}$)')
+#plt.ylabel(R'$k_yF_{\v y}$ (K m s$^{-1}$)')
 plt.ylabel(R'$k_yF_{wy}$ (m$^2$ s$^{-2}$)')
 
 
@@ -97,7 +98,7 @@ plt.gca().set_xlim([4e-4,6e-2])
 plt.xticks([])
 # uv
 #plt.gca().set_ylim([10**(-10),10**(-4)])
-# theta
+# v
 #plt.gca().set_ylim([10**(-12),10**(-5)])
 # w
 plt.gca().set_ylim([10**(-9),10**(-3)])
@@ -129,14 +130,14 @@ for i in np.arange(len(xs_ind)):
 # Plotting stuff:
 plt.xlabel(R'$k_y$ (m$^{-1}$)')
 #plt.ylabel(R'$k_yF_{uy}$ (m$^2$ s$^{-2}$)')
-plt.ylabel(R'$k_yF_{\theta y}$ (K m s$^{-1}$)')
+plt.ylabel(R'$k_yF_{v y}$ (m$^2$ s$^{-2}$)')
 #plt.ylabel(R'$k_yF_{wy}$ (m$^2$ s$^{-2}$)')
 
 
 plt.gca().set_xlim([4e-4,6e-2])
 # u-spect:
 #plt.gca().set_ylim([10**(-10),10**(-4)])
-#theta-spect:
+#v-spect:
 #plt.gca().set_ylim([10**(-12),10**(-5)])
 plt.ylim([10**(-10),10**(-4)])
 # w-spect:
@@ -145,7 +146,7 @@ plt.yticks([1e-10,1e-8,1e-6,1e-4])
 
 plt.text(0.08,0.09,'(c)',transform=plt.gca().transAxes)
 
-# -------- theta --------
+# -------- v --------
 
 # Load chosen file: 
 dh = loadmat('c_003_002_400m.mat')
@@ -172,15 +173,18 @@ print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
 
 # For each x:
+sumu = [None]*len(xs_ind)
 for i in np.arange(len(xs_ind)):
     X = np.squeeze(f_axis[0])
     Y = np.squeeze(f_axis[0]*u_spect[0][0,xs_ind[i]][0,zs_ind])
     plt.loglog(X,Y,c=cols[i],linewidth=2)
+    sumu[i] = sum(np.squeeze(u_spect[0][0,xs_ind[i]][0,zs_ind]))
+
 
 # Plotting stuff:
 #plt.xlabel(R'$k_y$ (m$^{-1}$)')
 #plt.ylabel(R'$k_yF_{uy}$ (m$^2$ s$^{-2}$)')
-#	plt.ylabel(R'$k_yF_{\theta y}$ (K m s$^{-1}$)')
+#	plt.ylabel(R'$k_yF_{\v y}$ (K m s$^{-1}$)')
 #	plt.ylabel(R'$k_yF_{wy}$ (m$^2$ s$^{-2}$)')
 
 plt.xlim([4e-4,6e-2])
@@ -205,15 +209,19 @@ print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
 
 # For each x:
+sumw = [None]*len(xs_ind)
 for i in np.arange(len(xs_ind)):
     X = np.squeeze(f_axis[0])
     Y = np.squeeze(f_axis[0]*u_spect[0][0,xs_ind[i]][0,zs_ind])
     plt.loglog(X,Y,c=cols[i],linewidth=2)
+    sumw[i] = sum(np.squeeze(u_spect[0][0,xs_ind[i]][0,zs_ind])
+
+)
 
 # Plotting stuff:
 #plt.xlabel(R'$k_y$ (m$^{-1}$)')
 #plt.ylabel(R'$k_yF_{uy}$ (m$^2$ s$^{-2}$)')
-#plt.ylabel(R'$k_yF_{\theta y}$ (K m s$^{-1}$)')
+#plt.ylabel(R'$k_yF_{\v y}$ (K m s$^{-1}$)')
 #plt.ylabel(R'$k_yF_{wy}$ (m$^2$ s$^{-2}$)')
 
 
@@ -222,7 +230,7 @@ plt.xticks([])
 plt.yticks([])
 # uv
 #plt.gca().set_ylim([10**(-10),10**(-4)])
-# theta
+# v
 #plt.gca().set_ylim([10**(-12),10**(-5)])
 # w
 plt.gca().set_ylim([10**(-9),10**(-3)])
@@ -245,22 +253,26 @@ print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
 
 # For each x:
+sumv = [None]*len(xs_ind)
 for i in np.arange(len(xs_ind)):
     X = np.squeeze(f_axis[0])
     Y = np.squeeze(f_axis[0]*u_spect[0][0,xs_ind[i]][0,zs_ind])
     plt.loglog(X,Y,c=cols[i],linewidth=2)
+    sumv[i] = sum(np.squeeze(u_spect[0][0,xs_ind[i]][0,zs_ind])
+
+)
 
 # Plotting stuff:
 plt.xlabel(R'$k_y$ (m$^{-1}$)')
 #plt.ylabel(R'$k_yF_{uy}$ (m$^2$ s$^{-2}$)')
-#plt.ylabel(R'$k_yF_{\theta y}$ (K m s$^{-1}$)')
+#plt.ylabel(R'$k_yF_{\v y}$ (K m s$^{-1}$)')
 #plt.ylabel(R'$k_yF_{wy}$ (m$^2$ s$^{-2}$)')
 
 
 plt.gca().set_xlim([4e-4,6e-2])
 # u-spect:
 #plt.gca().set_ylim([10**(-10),10**(-4)])
-#theta-spect:
+#v-spect:
 #plt.gca().set_ylim([10**(-12),10**(-5)])
 plt.ylim([10**(-10),10**(-4)])
 # w-spect:
@@ -295,15 +307,17 @@ print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
 
 # For each x:
+sumuf = [None]*len(xs_ind)
 for i in np.arange(len(xs_ind)):
     X = np.squeeze(f_axis[0])
     Y = np.squeeze(f_axis[0]*u_spect[0][0,xs_ind[i]][0,zs_ind])
     plt.loglog(X,Y,c=cols[i],linewidth=2)
+    sumuf[i] = sum(np.squeeze(u_spect[0][0,xs_ind[i]][0,zs_ind]))
 
 # Plotting stuff:
 #plt.xlabel(R'$k_y$ (m$^{-1}$)')
 #plt.ylabel(R'$k_yF_{uy}$ (m$^2$ s$^{-2}$)')
-#plt.ylabel(R'$k_yF_{\theta y}$ (K m s$^{-1}$)')
+#plt.ylabel(R'$k_yF_{\v y}$ (K m s$^{-1}$)')
 #plt.ylabel(R'$k_yF_{wy}$ (m$^2$ s$^{-2}$)')
 
 plt.xlim([4e-4,6e-2])
@@ -329,22 +343,24 @@ print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
 
 # For each x:
+sumwf = [None]*len(xs_ind)
 for i in np.arange(len(xs_ind)):
     X = np.squeeze(f_axis[0])
     Y = np.squeeze(f_axis[0]*u_spect[0][0,xs_ind[i]][0,zs_ind])
     plt.loglog(X,Y,c=cols[i],linewidth=2)
+    sumwf[i] = sum(np.squeeze(u_spect[0][0,xs_ind[i]][0,zs_ind]))
 
 # Plotting stuff:
 #plt.xlabel(R'$k_y$ (m$^{-1}$)')
 #plt.ylabel(R'$k_yF_{uy}$ (m$^2$ s$^{-2}$)')
-#plt.ylabel(R'$k_yF_{\theta y}$ (K m s$^{-1}$)')
+#plt.ylabel(R'$k_yF_{\v y}$ (K m s$^{-1}$)')
 #plt.ylabel(R'$k_yF_{wy}$ (m$^2$ s$^{-2}$)')
 
 plt.gca().set_xlim([4e-4,6e-2])
 plt.xticks([])
 # u
 #plt.gca().set_ylim([10**(-10),10**(-4)])
-# theta
+# v
 #plt.gca().set_ylim([10**(-12),10**(-5)])
 # w
 plt.gca().set_ylim([10**(-9),10**(-3)])
@@ -369,22 +385,24 @@ print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
 
 # For each x:
+sumvf = [None]*len(xs_ind)
 for i in np.arange(len(xs_ind)):
     X = np.squeeze(f_axis[0])
     Y = np.squeeze(f_axis[0]*u_spect[0][0,xs_ind[i]][0,zs_ind])
     plt.loglog(X,Y,c=cols[i],linewidth=2)
+    sumvf[i] = sum(np.squeeze(u_spect[0][0,xs_ind[i]][0,zs_ind]))
 
 # Plotting stuff:
 plt.xlabel(R'$k_y$ (m$^{-1}$)')
 #plt.ylabel(R'$k_yF_{uy}$ (m$^2$ s$^{-2}$)')
-#plt.ylabel(R'$k_yF_{\theta y}$ (K m s$^{-1}$)')
+#plt.ylabel(R'$k_yF_{\v y}$ (K m s$^{-1}$)')
 #plt.ylabel(R'$k_yF_{wy}$ (m$^2$ s$^{-2}$)')
 
 
 plt.gca().set_xlim([4e-4,6e-2])
 # u-spect:
 #plt.gca().set_ylim([10**(-10),10**(-4)])
-# theta-spect:
+# v-spect:
 #plt.gca().set_ylim([10**(-12),10**(-5)])
 plt.ylim([10**(-10),10**(-4)])
 # w-spect:
@@ -428,7 +446,7 @@ for i in np.arange(len(xs_ind)):
 # Plotting stuff:
 #plt.xlabel(R'$k_y$ (m$^{-1}$)')
 #plt.ylabel(R'$k_yF_{uy}$ (m$^2$ s$^{-2}$)')
-#plt.ylabel(R'$k_yF_{\theta y}$ (K m s$^{-1}$)')
+#plt.ylabel(R'$k_yF_{\v y}$ (K m s$^{-1}$)')
 #plt.ylabel(R'$k_yF_{wy}$ (m$^2$ s$^{-2}$)')
 
 plt.text(0.2,0.5,'250 m',color=cols[0],transform=plt.gca().transAxes,fontsize=18)
@@ -473,7 +491,7 @@ for i in np.arange(len(xs_ind)):
 # Plotting stuff:
 #plt.xlabel(R'$k_y$ (m$^{-1}$)')
 #plt.ylabel(R'$k_yF_{uy}$ (m$^2$ s$^{-2}$)')
-#plt.ylabel(R'$k_yF_{\theta y}$ (K m s$^{-1}$)')
+#plt.ylabel(R'$k_yF_{\v y}$ (K m s$^{-1}$)')
 #plt.ylabel(R'$k_yF_{wy}$ (m$^2$ s$^{-2}$)')
 
 
@@ -481,7 +499,7 @@ plt.gca().set_xlim([4e-4,6e-2])
 plt.xticks([])
 # uv
 #plt.gca().set_ylim([10**(-10),10**(-4)])
-# theta
+# v
 #plt.gca().set_ylim([10**(-12),10**(-5)])
 # w
 plt.gca().set_ylim([10**(-9),10**(-3)])
@@ -521,14 +539,14 @@ for i in np.arange(len(xs_ind)):
 #plt.legend(frameon=False,fontsize=18,loc=8)
 plt.xlabel(R'$k_y$ (m$^{-1}$)')
 #plt.ylabel(R'$k_yF_{uy}$ (m$^2$ s$^{-2}$)')
-#plt.ylabel(R'$k_yF_{\theta y}$ (K m s$^{-1}$)')
+#plt.ylabel(R'$k_yF_{\v y}$ (K m s$^{-1}$)')
 #plt.ylabel(R'$k_yF_{wy}$ (m$^2$ s$^{-2}$)')
 
 
 plt.gca().set_xlim([4e-4,6e-2])
 # u-spect:
 #plt.gca().set_ylim([10**(-10),10**(-4)])
-# theta-spect:
+# v-spect:
 #plt.gca().set_ylim([10**(-12),10**(-5)])
 plt.ylim([10**(-10),10**(-4)])
 # w-spect:
@@ -543,5 +561,5 @@ plt.subplots_adjust(wspace=0.1, hspace=0.1)
 
 plt.savefig('../figure_13.png',dpi=600)
 
-plt.show()
+#plt.show()
 
