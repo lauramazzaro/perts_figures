@@ -1,8 +1,8 @@
 # Add new colorbars which aren't available in my version of python (i.e. viridis)
-execfile('/Users/lauramazzaro/Documents/Work/Perts/Article/Figures/new_cmaps.py')
+execfile('../new_cmaps.py')
 
 # Modify plotting parameters!
-execfile('/Users/lauramazzaro/Documents/Work/Perts/Article/Figures/new_params.py')
+execfile('../new_params.py')
 
 from scipy.io import loadmat
 import matplotlib.pyplot as plt
@@ -18,8 +18,8 @@ plt.close('all')
 # Create figure handle:
 plt.figure(figsize = (16,12))
 
-xs_ind = [1,20,40,60,80,100,120,140,160,180]
-
+#xs_ind = [1,20,40,60,80,100,120,140,160,180]
+xs_ind = [1,5,10,15,20,40,60,80,120,160]
 # make colormap:
 #cols = cmaps['viridis'](np.linspace(0,1,len(xs_ind)))
 cols = matplotlib.cm.get_cmap('jet')(np.linspace(0,1,len(xs_ind)))
@@ -27,7 +27,7 @@ cols = matplotlib.cm.get_cmap('jet')(np.linspace(0,1,len(xs_ind)))
 # -------- theta --------
 
 # Load chosen file: 
-dh = loadmat('n_008_001.mat')
+dh = loadmat('n_009_001_004.mat')
 
 # Extract important data:
 zs = dh['zs_n'][0]
@@ -148,7 +148,7 @@ plt.text(0.08,0.09,'(c)',transform=plt.gca().transAxes)
 # -------- W-force --------
 
 # Load chosen file: 
-dh = loadmat('n_008_005.mat')
+dh = loadmat('n_009_006.mat')
 
 # Extract important data:
 zs = dh['zs_n'][0]
@@ -272,7 +272,7 @@ plt.text(0.08,0.09,'(f)',transform=plt.gca().transAxes)
 # -------- UV-force --------
 
 # Load chosen file: 
-dh = loadmat('n_008_003.mat')
+dh = loadmat('n_010_001.mat')
 
 # Extract important data:
 zs = dh['zs_n'][0]
@@ -306,16 +306,16 @@ for i in np.arange(len(xs_ind)):
 #plt.ylabel(R'$k_yF_{\theta y}$ (K m s$^{-1}$)')
 #plt.ylabel(R'$k_yF_{wy}$ (m$^2$ s$^{-2}$)')
 
-plt.text(0.2,0.5,'750 m',color=cols[0],transform=plt.gca().transAxes,fontsize=18)
-plt.text(0.2,0.4,'5000 m',color=cols[1],transform=plt.gca().transAxes,fontsize=18)
-plt.text(0.2,0.3,'10000 m',color=cols[2],transform=plt.gca().transAxes,fontsize=18)
-plt.text(0.2,0.2,'15000 m',color=cols[3],transform=plt.gca().transAxes,fontsize=18)
-plt.text(0.2,0.1,'20000 m',color=cols[4],transform=plt.gca().transAxes,fontsize=18)
-plt.text(0.45,0.5,'25000 m',color=cols[5],transform=plt.gca().transAxes,fontsize=18)
-plt.text(0.45,0.4,'30000 m',color=cols[6],transform=plt.gca().transAxes,fontsize=18)
-plt.text(0.45,0.3,'35000 m',color=cols[7],transform=plt.gca().transAxes,fontsize=18)
-plt.text(0.45,0.2,'40000 m',color=cols[8],transform=plt.gca().transAxes,fontsize=18)
-plt.text(0.45,0.1,'45000 m',color=cols[9],transform=plt.gca().transAxes,fontsize=18)
+plt.text(0.2,0.5,'250 m',color=cols[0],transform=plt.gca().transAxes,fontsize=18)
+plt.text(0.2,0.4,'1250 m',color=cols[1],transform=plt.gca().transAxes,fontsize=18)
+plt.text(0.2,0.3,'2500 m',color=cols[2],transform=plt.gca().transAxes,fontsize=18)
+plt.text(0.2,0.2,'3750 m',color=cols[3],transform=plt.gca().transAxes,fontsize=18)
+plt.text(0.2,0.1,'5000 m',color=cols[4],transform=plt.gca().transAxes,fontsize=18)
+plt.text(0.5,0.5,'10000 m',color=cols[5],transform=plt.gca().transAxes,fontsize=18)
+plt.text(0.5,0.4,'15000 m',color=cols[6],transform=plt.gca().transAxes,fontsize=18)
+plt.text(0.5,0.3,'20000 m',color=cols[7],transform=plt.gca().transAxes,fontsize=18)
+plt.text(0.5,0.2,'30000 m',color=cols[8],transform=plt.gca().transAxes,fontsize=18)
+plt.text(0.5,0.1,'40000 m',color=cols[9],transform=plt.gca().transAxes,fontsize=18)
 
 plt.xlim([0.0004,0.1])
 plt.xticks([])

@@ -1,8 +1,8 @@
 # Add new colorbars which aren't available in my version of python (i.e. viridis)
-execfile('/Users/lauramazzaro/Documents/Work/Perts/Article/Figures/new_cmaps.py')
+execfile('../new_cmaps.py')
 
 # Modify plotting parameters!
-execfile('/Users/lauramazzaro/Documents/Work/Perts/Article/Figures/new_params.py')
+execfile('../new_params.py')
 
 from scipy.io import loadmat
 import matplotlib.pyplot as plt
@@ -12,7 +12,6 @@ import glob
 
 # -------- INPUT --------
 
-line_cols = [line_cols[0],line_cols[1],line_cols[7],line_cols[5],line_cols[8],line_cols[2],line_cols[7],line_cols[3],line_cols[6]]
 
 # Ask which component spectra to plot:
 #print 'Which spectra component are you interested in plotting? (u = 1 ; T = 2 ; w = 3)'
@@ -27,7 +26,7 @@ line_cols = [line_cols[0],line_cols[1],line_cols[7],line_cols[5],line_cols[8],li
 plt.close('all')
 
 # Find list of available '*mat' files:
-file_list = ['n_008_001.mat','n_008_003.mat','n_008_005.mat']#,'n_008_009.mat','n_008_010.mat','n_008_008.mat']
+file_list = ['n_009_001_004.mat','n_009_006.mat','n_010_001.mat']#,'n_008_009.mat','n_008_010.mat','n_008_008.mat']
 
 # ---------- PLOT ----------
 

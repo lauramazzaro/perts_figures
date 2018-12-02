@@ -38,11 +38,11 @@ dat = dh['TKE_res'][int(100/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[0],label=R'$\mathregular{{C}_{z1500}}$')
 
-dh = loadmat('c_003_006.mat')
-X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
-dat = dh['TKE_res'][int(100/20),:]
-dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[1],label=R'$\mathregular{{C}_{z2500}}$')
+#dh = loadmat('c_003_006.mat')
+#X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
+#dat = dh['TKE_res'][int(100/20),:]
+#dat = dat/np.mean(dat[-dat.shape[0]/5:])
+#plt.plot(X/1000,dat,c=line_cols[1],label=R'$\mathregular{{C}_{z2500}}$')
 
 dh = loadmat('c_003_008.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
@@ -56,11 +56,11 @@ dat = dh['TKE_res'][int(100/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[3],label=R'$\mathregular{{C}_{z2500}}$')
 
-dh = loadmat('c_003_011.mat')
-X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
-dat = dh['TKE_res'][int(100/20),:]
-dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[4],label=R'$\mathregular{{N}_{z1500}}$')
+#dh = loadmat('c_003_011.mat')
+#X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
+#dat = dh['TKE_res'][int(100/20),:]
+#dat = dat/np.mean(dat[-dat.shape[0]/5:])
+#plt.plot(X/1000,dat,c=line_cols[4],label=R'$\mathregular{{N}_{z1500}}$')
 
 rect = matplotlib.patches.Rectangle((0,0.9),50,0.2,color='#e6e6e6')
 plt.gca().add_patch(rect)
@@ -72,9 +72,9 @@ plt.ylabel(R'$\mathregular{q/q_o (-)}$')
 
 plt.xlim([0,50])
 plt.xticks([])
-plt.ylim([0,3])
-plt.yticks([0,1,2,3])
-plt.text(47, 2.7, '(a)')
+plt.ylim([0,2])
+plt.yticks([0,1,2])
+plt.text(47, 1.7, '(a)')
 
 #_____________________________ z = 250m _______________________________
 
@@ -98,11 +98,11 @@ dat = dh['TKE_res'][int(250/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[0],label=R'$\mathregular{{C}_{z1500}}$')
 
-dh = loadmat('c_003_006.mat')
-X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
-dat = dh['TKE_res'][int(250/20),:]
-dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[1],label=R'$\mathregular{{C}_{z2500}}$')
+#dh = loadmat('c_003_006.mat')
+#X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
+#dat = dh['TKE_res'][int(250/20),:]
+#dat = dat/np.mean(dat[-dat.shape[0]/5:])
+#plt.plot(X/1000,dat,c=line_cols[1],label=R'$\mathregular{{C}_{z2500}}$')
 
 dh = loadmat('c_003_008.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
@@ -116,11 +116,11 @@ dat = dh['TKE_res'][int(250/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[3],label=R'$\mathregular{{C}_{z2500}}$')
 
-dh = loadmat('c_003_011.mat')
-X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
-dat = dh['TKE_res'][int(250/20),:]
-dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[4],label=R'$\mathregular{{N}_{z1500}}$')
+#dh = loadmat('c_003_011.mat')
+#X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
+#dat = dh['TKE_res'][int(250/20),:]
+#dat = dat/np.mean(dat[-dat.shape[0]/5:])
+#plt.plot(X/1000,dat,c=line_cols[4],label=R'$\mathregular{{N}_{z1500}}$')
 
 
 rect = matplotlib.patches.Rectangle((0,0.9),50,0.2,color='#e6e6e6')
@@ -133,9 +133,9 @@ plt.ylabel(R'$\mathregular{q/q_o (-)}$')
 
 plt.xlim([0,50])
 plt.xticks([])
-plt.ylim([0,3])
-plt.yticks([0,1,2,3])
-plt.text(47, 2.7, '(b)')
+plt.ylim([0,2])
+plt.yticks([0,1,2])
+plt.text(47, 1.7, '(b)')
 
 #_____________________________ z = 350m _______________________________
 
@@ -159,11 +159,11 @@ dat = dh['TKE_res'][int(350/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[0],label=R'$\mathregular{{C}_{z1500}}$')
 
-dh = loadmat('c_003_006.mat')
-X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
-dat = dh['TKE_res'][int(350/20),:]
-dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[1],label=R'$\mathregular{{C}_{z2500}}$')
+#dh = loadmat('c_003_006.mat')
+#X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
+#dat = dh['TKE_res'][int(350/20),:]
+#dat = dat/np.mean(dat[-dat.shape[0]/5:])
+#plt.plot(X/1000,dat,c=line_cols[1],label=R'$\mathregular{{C}_{z2500}}$')
 
 dh = loadmat('c_003_008.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
@@ -177,19 +177,19 @@ dat = dh['TKE_res'][int(350/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
 plt.plot(X/1000,dat,c=line_cols[3],label=R'$\mathregular{{N}_{z1500}}$')
 
-dh = loadmat('c_003_011.mat')
-X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
-dat = dh['TKE_res'][int(350/20),:]
-dat = dat/np.mean(dat[-dat.shape[0]/5:])
-plt.plot(X/1000,dat,c=line_cols[4],label=R'$\mathregular{{N}_{z1500}}$')
+#dh = loadmat('c_003_011.mat')
+#X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
+#dat = dh['TKE_res'][int(350/20),:]
+#dat = dat/np.mean(dat[-dat.shape[0]/5:])
+#plt.plot(X/1000,dat,c=line_cols[4],label=R'$\mathregular{{N}_{z1500}}$')
 
-plt.text(11,0.15,R'$\mathregular{{C}_{NP}}$',color = line_cols[-1],fontsize=20)
-plt.text(17,0.15,R'$\mathregular{{C}_{\theta}}$',color = "black",fontsize=20)
+plt.text(14,0.15,R'$\mathregular{{C}_{NP}}$',color = line_cols[-1],fontsize=20)
+plt.text(18,0.15,R'$\mathregular{{C}_{\theta}}$',color = "black",fontsize=20)
 plt.text(21,0.15,R'$\mathregular{{C}_{z1500}}$',color = line_cols[0],fontsize=20)
-plt.text(25,0.15,R'$\mathregular{{C}_{z2500}}$',color = line_cols[1],fontsize=20)
-plt.text(31,0.15,R'$\mathregular{{C}_{z5000}}$',color = line_cols[2],fontsize=20)
-plt.text(37,0.15,R'$\mathregular{{C}_{z10000}}$',color = line_cols[3],fontsize=20)
-plt.text(43,0.15,R'$\mathregular{{C}_{z15000}}$',color = line_cols[4],fontsize=20)
+#plt.text(25,0.15,R'$\mathregular{{C}_{z2500}}$',color = line_cols[1],fontsize=20)
+plt.text(25,0.15,R'$\mathregular{{C}_{z5000}}$',color = line_cols[2],fontsize=20)
+plt.text(29,0.15,R'$\mathregular{{C}_{z10000}}$',color = line_cols[3],fontsize=20)
+#plt.text(43,0.15,R'$\mathregular{{C}_{z15000}}$',color = line_cols[4],fontsize=20)
          
 
 rect = matplotlib.patches.Rectangle((0,0.9),50,0.2,color='#e6e6e6')
@@ -201,9 +201,9 @@ plt.xlabel('x (km)')
 plt.ylabel(R'$\mathregular{q/q_o (-)}$')
 
 plt.xlim([0,50])
-plt.ylim([0,3])
-plt.yticks([0,1,2,3])
-plt.text(47, 2.7, '(c)')
+plt.ylim([0,2])
+plt.yticks([0,1,2])
+plt.text(47, 1.7, '(c)')
 
 plt.tight_layout()
 

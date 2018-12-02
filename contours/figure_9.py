@@ -1,10 +1,10 @@
 # Plots contour of vertical velocity at desired height:
 
 # Add new colorbars which aren't available in my version of python (i.e. viridis)
-execfile('/Users/lauramazzaro/Documents/Work/Perts/Article/Figures/new_cmaps.py')
+execfile('../new_cmaps.py')
 
 # Modify plotting parameters!
-execfile('/Users/lauramazzaro/Documents/Work/Perts/Article/Figures/new_params.py')
+execfile('../new_params.py')
 
 from scipy.io import loadmat
 import numpy as np
@@ -16,13 +16,13 @@ import matplotlib
 # 018_000_d01:
 crange = [5,6,7,8,9,10,11]
 
-z_plot = 250
+z_plot = 100
 
 # ------------- Theta --------------
 
 fig,axs = plt.subplots(3,1,figsize=(9,12))
 
-with np.load('neutral_009_001_001_theta_0.25K/d02_0001-01-02_07:00:00.npz') as dh:
+with np.load('neutral_009_001_004_theta_0.35K/d02_0001-01-02_07:00:00.npz') as dh:
      u = dh['u']
      z = np.squeeze(dh['z'])
      dx = dh['dx'][0][0]
@@ -42,7 +42,7 @@ axs.flat[0].text(-8.5,19,'(a)')
 
 # ------------- vertical --------------
 
-with np.load('neutral_008_005_w1250/d02_0001-01-02_07:00:00.npz') as dh:
+with np.load('neutral_009_006_w_1250/d02_0001-01-02_07:00:00.npz') as dh:
      u = dh['u']
      z = np.squeeze(dh['z'])
      dx = dh['dx'][0][0]
@@ -63,7 +63,7 @@ axs.flat[1].text(-8.5,19,'(b)')
 
 # ------------- horizontal --------------
 
-with np.load('neutral_008_003_uv1000/d02_0001-01-02_07:00:00.npz') as dh:
+with np.load('neutral_010_001_uv_1000/d02_0001-01-02_07:00:00.npz') as dh:
      u = dh['u']
      z = np.squeeze(dh['z'])
      dx = dh['dx'][0][0]

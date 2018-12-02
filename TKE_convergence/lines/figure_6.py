@@ -20,7 +20,7 @@ plt.figure(figsize=(13,13))
 
 plt.subplot(3,1,1)
 
-dh = loadmat('n_009_001_001.mat')
+dh = loadmat('n_009_001_004.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(100/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
@@ -62,7 +62,7 @@ plt.text(47, 1.7, '(a)')
 
 plt.subplot(3,1,2)
 
-dh = loadmat('n_009_001_001.mat')
+dh = loadmat('n_009_001_004.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(250/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])
@@ -105,7 +105,7 @@ plt.text(47, 1.7, '(b)')
 
 plt.subplot(3,1,3)
 
-dh = loadmat('n_009_001_001.mat')
+dh = loadmat('n_009_001_004.mat')
 X = np.arange(dh['TKE_res'].shape[1])*dh['dx'][0][0]
 dat = dh['TKE_res'][int(350/20),:]
 dat = dat/np.mean(dat[-dat.shape[0]/5:])

@@ -1,10 +1,10 @@
 # Plots contour of vertical velocity at desired height:
 
 # Add new colorbars which aren't available in my version of python (i.e. viridis)
-execfile('/Users/lauramazzaro/Documents/Work/Perts/Article/Figures/new_cmaps.py')
+execfile('../new_cmaps.py')
 
 # Modify plotting parameters!
-execfile('/Users/lauramazzaro/Documents/Work/Perts/Article/Figures/new_params.py')
+execfile('../new_params.py')
 
 from scipy.io import loadmat
 import numpy as np
@@ -14,9 +14,9 @@ import matplotlib
 # ---------- Input ----------
 
 # 018_000_d01:
-crange = [-4,-2,0,2,4]
+crange = [-3,-2,-1,0,1,2,3]
 
-z_plot = 1000
+z_plot = 400
 
 # ------------- No Perts --------------
 
@@ -62,7 +62,7 @@ axs.flat[1].text(51,19,'(b)')
 
 # ------------- vertical --------------
 
-with np.load('convective_003_011_w15000/d02_0001-01-01_10:00:00.npz') as dh:
+with np.load('convective_003_009_w10000/d02_0001-01-01_10:00:00.npz') as dh:
      u = dh['w']
      z = np.squeeze(dh['z'])
      dx = dh['dx'][0][0]
