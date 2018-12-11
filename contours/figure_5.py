@@ -1,55 +1,104 @@
-# 'contour_u.py'
-# 
-# Plots contour of vertical velocity at desired height:
-
 # Add new colorbars which aren't available in my version of python (i.e. viridis)
-execfile('/Users/lauramazzaro/Documents/Work/Perts/Article/Figures/new_cmaps.py')
+execfile('../new_cmaps.py')
 
 # Modify plotting parameters!
-execfile('/Users/lauramazzaro/Documents/Work/Perts/Article/Figures/new_params.py')
+execfile('../new_params.py')
 
-from scipy.io import loadmat
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 import matplotlib
 
-# ---------- Input ----------
+# --------- INPUT ----------
 
-# 018_000_d01:
-crange = [5,7,9,11]
+crange = [6,7,8,9,10,11]
 
-z_plot = 100
-# ---------------------------
+# ------------- Theta ---------------
 
-with np.load('neutral_009_000_noperts/d02_0001-01-02_07:00:00.npz') as dh:
-     u = dh['u']
-     z = np.squeeze(dh['z'])
-     dx = dh['dx'][0][0]
+fig,axs = plt.subplots(2,2,figsize=(14,8))
 
-z_ind = [i for i in np.arange(len(z)) if z[i] >= z_plot][0]
+dh = np.load('neutral_009_001_000_theta_0.5K/d02_0001-01-02_07:00:00.npz')
 
+dx = dh['dx']
+z_ind = 12
 
-X = np.arange(u.shape[2])*dx/1000
-Y = np.arange(u.shape[1])*dx/1000
+X = np.squeeze(np.arange(dh['u'].shape[2])*dx/1000)
+Y = np.squeeze(np.arange(dh['u'].shape[1])*dx/1000)
+im = axs.flat[0].contourf(X,Y,dh['u'][z_ind,:,:],np.linspace(crange[0],crange[-1],75),cmap=cmaps['viridis'],extend='both')
 
-fh = plt.figure(figsize=(8,4))
-ax = fh.add_subplot(111)
+axs.flat[0].set_ylabel('z (km)')
+#axs.flat[0].set_xlabel('x (km)')
+axs.flat[0].set_xlim([0,50])
+axs.flat[0].set_ylim([0,20])
+axs.flat[0].set_xticks([])
+axs.flat[0].set_yticks([0,5,10,15,20])
+#axs.flat[0].set_yticks([])
+axs.flat[0].text(-8,20,'(a)')
 
-plt.axes().set_aspect('equal')
+# ------------- z-force ---------------
 
-plot = ax.contourf(X,Y,u[z_ind,:,:],np.linspace(crange[0],crange[-1],75),cmap=cmaps['viridis'],extend='both')
-#plot = ax.contourf(X,Y,u[z_ind,:,:],75,cmap=cmaps['viridis'],extend='both')
-ax.set_xlim(0,50)
-ax.set_ylim(0,20)
-plot.ax.set_xlabel('x (km)')
-plot.ax.set_ylabel('y (km)')
+dh = np.load('neutral_009_001_004_theta_0.35K/d02_0001-01-02_07:00:00.npz')
 
-cbar = plt.colorbar(plot,ticks=crange,format='%.0f',fraction=0.023,aspect=15)
-#cbar = plt.colorbar(plot,format='%.1f')
-cbar.ax.xaxis.set_tick_params(pad=0.5)
+dx = dh['dx']
+
+X = np.squeeze(np.arange(dh['u'].shape[2])*dx/1000)
+Y = np.squeeze(np.arange(dh['u'].shape[1])*dx/1000)
+im = axs.flat[1].contourf(X,Y,dh['u'][z_ind,:,:],np.linspace(crange[0],crange[-1],75),cmap=cmaps['viridis'],extend='both')
+
+#axs.flat[1].set_ylabel('z (km)')
+#axs.flat[1].set_xlabel('x (km)')
+axs.flat[1].set_xlim([0,50])
+axs.flat[1].set_ylim([0,20])
+axs.flat[1].set_xticks([])
+axs.flat[1].set_yticks([])
+#axs.flat[1].set_yticks([0,5,10,15,20])
+axs.flat[1].text(-4,20,'(b)')
+
+# ------------- Theta ---------------
+
+dh = np.load('neutral_009_001_000_theta_0.5K/d02_0001-01-02_07:00:00.npz')
+
+dx = dh['dx']
+z_ind = 5
+
+X = np.squeeze(np.arange(dh['u'].shape[2])*dx/1000)
+Y = np.squeeze(np.arange(dh['u'].shape[1])*dx/1000)
+im = axs.flat[2].contourf(X,Y,dh['u'][z_ind,:,:],np.linspace(crange[0],crange[-1],75),cmap=cmaps['viridis'],extend='both')
+
+axs.flat[2].set_ylabel('z (km)')
+axs.flat[2].set_xlabel('x (km)')
+axs.flat[2].set_xlim([0,50])
+axs.flat[2].set_ylim([0,20])
+#axs.flat[2].set_xticks([])
+axs.flat[2].set_yticks([0,5,10,15,20])
+#axs.flat[2].set_yticks([])
+axs.flat[2].text(-8,20,'(c)')
+
+# ------------- z-force ---------------
+
+dh = np.load('neutral_009_001_004_theta_0.35K/d02_0001-01-02_07:00:00.npz')
+
+dx = dh['dx']
+
+X = np.squeeze(np.arange(dh['u'].shape[2])*dx/1000)
+Y = np.squeeze(np.arange(dh['u'].shape[1])*dx/1000)
+im = axs.flat[3].contourf(X,Y,dh['u'][z_ind,:,:],np.linspace(crange[0],crange[-1],75),cmap=cmaps['viridis'],extend='both')
+
+#axs.flat[3].set_ylabel('z (km)')
+axs.flat[3].set_xlabel('x (km)')
+axs.flat[3].set_xlim([0,50])
+axs.flat[3].set_ylim([0,20])
+#axs.flat[3].set_xticks([])
+axs.flat[3].set_yticks([])
+#axs.flat[3].set_yticks([0,5,10,15,20])
+axs.flat[3].text(-4,20,'(d)')
+
 
 plt.tight_layout()
 
-plt.savefig('../figure_5.png',dpi=600)
+fig.subplots_adjust(bottom=0.25)
+
+cbar_ax = fig.add_axes([0.15,0.1,0.75,0.03])
+cbar = fig.colorbar(im,cax=cbar_ax,ticks=crange,orientation='horizontal')
+plt.savefig('../figure_5.png', dpi=600)
 
 plt.show()
