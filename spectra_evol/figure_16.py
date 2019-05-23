@@ -48,6 +48,9 @@ for h_ind in np.arange(len(zs[0][0])):
 print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
 
+# Plot perturbation wavenumber:
+plt.loglog([1.651*10**(-2),1.651*10**(-2)],[10**(-15),10**(0)], color='#bbc2cc')
+
 # For each x:
 for i in np.arange(len(xs_ind)):
     X = np.squeeze(f_axis[0])
@@ -80,6 +83,9 @@ for h_ind in np.arange(len(zs[0][0])):
     print '[' + str(h_ind + 1) + '] ' + str(zs[0][0][h_ind]) + 'm'
 print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
+
+# Plot perturbation wavenumber:
+plt.loglog([1.651*10**(-2),1.651*10**(-2)],[10**(-15),10**(0)], color='#bbc2cc')
 
 # For each x:
 for i in np.arange(len(xs_ind)):
@@ -120,6 +126,9 @@ for h_ind in np.arange(len(zs[0][0])):
     print '[' + str(h_ind + 1) + '] ' + str(zs[0][0][h_ind]) + 'm'
 print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
+
+# Plot perturbation wavenumber:
+plt.loglog([1.651*10**(-2),1.651*10**(-2)],[10**(-15),10**(0)], color='#bbc2cc')
 
 # For each x:
 for i in np.arange(len(xs_ind)):
@@ -172,6 +181,9 @@ for h_ind in np.arange(len(zs[0][0])):
 print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
 
+# Plot perturbation wavenumber:
+plt.loglog([1.651*10**(-2),1.651*10**(-2)],[10**(-15),10**(0)], color='#bbc2cc')
+
 # For each x:
 sumu = [None]*len(xs_ind)
 for i in np.arange(len(xs_ind)):
@@ -207,6 +219,9 @@ for h_ind in np.arange(len(zs[0][0])):
     print '[' + str(h_ind + 1) + '] ' + str(zs[0][0][h_ind]) + 'm'
 print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
+
+# Plot perturbation wavenumber:
+plt.loglog([1.651*10**(-2),1.651*10**(-2)],[10**(-15),10**(0)], color='#bbc2cc')
 
 # For each x:
 sumw = [None]*len(xs_ind)
@@ -251,6 +266,9 @@ for h_ind in np.arange(len(zs[0][0])):
     print '[' + str(h_ind + 1) + '] ' + str(zs[0][0][h_ind]) + 'm'
 print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
+
+# Plot perturbation wavenumber:
+plt.loglog([1.651*10**(-2),1.651*10**(-2)],[10**(-15),10**(0)], color='#bbc2cc')
 
 # For each x:
 sumv = [None]*len(xs_ind)
@@ -306,6 +324,9 @@ for h_ind in np.arange(len(zs[0][0])):
 print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
 
+# Plot perturbation wavenumber:
+plt.loglog([1.651*10**(-2),1.651*10**(-2)],[10**(-15),10**(0)], color='#bbc2cc')
+
 # For each x:
 sumuf = [None]*len(xs_ind)
 for i in np.arange(len(xs_ind)):
@@ -341,6 +362,9 @@ for h_ind in np.arange(len(zs[0][0])):
     print '[' + str(h_ind + 1) + '] ' + str(zs[0][0][h_ind]) + 'm'
 print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
+
+# Plot perturbation wavenumber:
+plt.loglog([1.651*10**(-2),1.651*10**(-2)],[10**(-15),10**(0)], color='#bbc2cc')
 
 # For each x:
 sumwf = [None]*len(xs_ind)
@@ -383,6 +407,9 @@ for h_ind in np.arange(len(zs[0][0])):
     print '[' + str(h_ind + 1) + '] ' + str(zs[0][0][h_ind]) + 'm'
 print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
+
+# Plot perturbation wavenumber:
+plt.loglog([1.651*10**(-2),1.651*10**(-2)],[10**(-15),10**(0)], color='#bbc2cc')
 
 # For each x:
 sumvf = [None]*len(xs_ind)
@@ -437,6 +464,9 @@ for h_ind in np.arange(len(zs[0][0])):
 print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
 
+# Plot perturbation wavenumber:
+plt.loglog([1.651*10**(-2),1.651*10**(-2)],[10**(-15),10**(0)], color='#bbc2cc')
+
 # For each x:
 for i in np.arange(len(xs_ind)):
     X = np.squeeze(f_axis[0])
@@ -482,6 +512,9 @@ for h_ind in np.arange(len(zs[0][0])):
 print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
 
+# Plot perturbation wavenumber:
+plt.loglog([1.651*10**(-2),1.651*10**(-2)],[10**(-15),10**(0)], color='#bbc2cc')
+
 # For each x:
 for i in np.arange(len(xs_ind)):
     X = np.squeeze(f_axis[0])
@@ -522,6 +555,9 @@ for h_ind in np.arange(len(zs[0][0])):
     print '[' + str(h_ind + 1) + '] ' + str(zs[0][0][h_ind]) + 'm'
 print 'Which one would you like to plot?'
 zs_ind = input('> ')-1
+
+# Plot perturbation wavenumber:
+plt.loglog([1.651*10**(-2),1.651*10**(-2)],[10**(-15),10**(0)], color='#bbc2cc')
 
 # For each x:
 for i in np.arange(len(xs_ind)):
